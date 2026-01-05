@@ -1,0 +1,7 @@
+<suite name = "LoginSuite">
+<test name="Logintext">
+    <classes>
+        <class name="tests.loginTest"/>
+    </classes>
+</test>
+</suite>
