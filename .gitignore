@@ -184,3 +184,8 @@ maven-repository/
 .maven-cache/
 maven-metadata-local.xml
 .maven_repos/
+
+#exclude all reports and screenshots
+
+reports/
+screenshots/
