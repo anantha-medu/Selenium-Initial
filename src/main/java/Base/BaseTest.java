@@ -11,7 +11,6 @@ import utils.ExtentReportManager;
 import utils.Log;
 
 import java.lang.reflect.Method;
-import java.time.Duration;
 
 public class BaseTest
 {
@@ -51,16 +50,16 @@ public class BaseTest
     public void tearDown(ITestResult result)
     {
         String methodName = result.getMethod().getMethodName();
-        String ssPath = ExtentReportManager.captureScreenshot(driver,methodName);
+        String screenshotPath = ExtentReportManager.captureScreenshot(driver,methodName);
         if(result.getStatus() == ITestResult.FAILURE)
         {
-            tests.fail(methodName+" has failed!", MediaEntityBuilder.createScreenCaptureFromPath(ssPath).build());
+            tests.fail(methodName+" has failed!",MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
             Log.error("Test case "+ methodName + " failed");
         }
 
         if(result.getStatus()==ITestResult.SUCCESS)
         {
-            tests.pass(methodName+" has completed!", MediaEntityBuilder.createScreenCaptureFromPath(ssPath).build());
+            tests.pass(methodName+" has completed!", MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
             Log.info("Test case "+ methodName + " is pass");
         }
 

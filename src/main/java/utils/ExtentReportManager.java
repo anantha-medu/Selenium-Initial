@@ -23,6 +23,7 @@ public class ExtentReportManager
         {
             String timestamp = new SimpleDateFormat("yyyy-MM-dd_HHmmss").format(new Date());
             String reportPath = "reports/ExtentReport"+timestamp+".html";
+            //System.out.println(reportPath);
             //this creates the report
             ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
             //config method can add details and customize the report
@@ -48,8 +49,7 @@ public class ExtentReportManager
         try
         {
             File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            String path= System.getProperty("user.dir") + "/screenshots/" + screenshotName + ".jpg";
-            System.out.println(path);
+            String path= "../screenshots/" + screenshotName + ".png";
             FileUtils.copyFile(src,new File(path));
             return path;
         }
